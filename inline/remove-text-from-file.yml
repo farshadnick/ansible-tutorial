@@ -1,0 +1,16 @@
+# it will remove  line below  from fstab 
+# d-storage-01.alibaba.local:/GFSSTORAGE /GFSSTORAGE glusterfs backupvolfile-server=d-storage-02.alibaba.local,backupvolfile-server=d-storage-03.alibaba.local,use-readdirp=no 0 0
+
+---
+  - name: Remove mount file Gluster From Fstab
+    hosts: prod_kuber
+    tasks:
+      - name: "Remove Line "
+        lineinfile:
+          path: /etc/fstab
+          regexp: d-storage-01.packops.local:/packops-CDN
+          state: absent
+        register: fstab
+
+
+
