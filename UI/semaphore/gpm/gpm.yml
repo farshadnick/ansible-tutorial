@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install gpm
+      apt:
+        name: gpm
+        state: present
+        update_cache: yes
